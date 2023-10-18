@@ -1,0 +1,16 @@
+#! /bin/bash
+echo ''
+echo "Welcome `tput setaf 1`@$USER`tput sgr0`"
+echo "`tput setaf 6``tput bold`
+░█▀▀░█░█░█▀▄░█▀▄░█▀█░█▄█░█▀█░▀█▀░█▀█░░░█▀▀░▀█▀░█▀█░█▀▄░█▀▀░█▀▄`tput setaf 5`
+░▀▀█░█░█░█▀▄░█░█░█░█░█░█░█▀█░░█░░█░█░░░█▀▀░░█░░█░█░█░█░█▀▀░█▀▄
+░▀▀▀░▀▀▀░▀▀░░▀▀░░▀▀▀░▀░▀░▀░▀░▀▀▀░▀░▀░░░▀░░░▀▀▀░▀░▀░▀▀░░▀▀▀░▀░▀`tput setaf 6`
+`tput sgr0`"
+read -p `tput setaf 2`"Enter your target:" target
+echo "`tput setaf 3`it may take a while based on the number of subdomains, please wait`tput blink`...`tput sgr0`"
+assetfinder $target > sd1.txt
+cat sd1.txt | httprobe > live_sd1.txt
+sort -u  live_sd1.txt > sorted_sd1.txt
+cat sorted_sd1.txt
+figlet THANKS
+echo `tput setaf 1`"==========================================="`tput sgr0`
