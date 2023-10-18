@@ -1,0 +1,25 @@
+#! /bin/bash
+echo ''
+echo "Welcome `tput setaf 1`@$USER`tput sgr0`"
+echo "`tput setaf 6``tput bold`
+░█▀▀░█░█░█▀▄░█▀▄░█▀█░█▄█░█▀█░▀█▀░█▀█░░░█▀▀░█▀▀░█▀▀░█░█░█▀▀░█▀▄
+░▀▀█░█░█░█▀▄░█░█░█░█░█░█░█▀█░░█░░█░█░░░▀▀█░█▀▀░█▀▀░█▀▄░█▀▀░█▀▄`tput setaf 5`
+░▀▀▀░▀▀▀░▀▀░░▀▀░░▀▀▀░▀░▀░▀░▀░▀▀▀░▀░▀░░░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀░▀`tput setaf 6`
+`tput sgr0`"
+echo "`tput setaf 5`Tool for finding sub-domains`tput sgr0`" 
+echo "`tput setaf 1`=============================================`tput sgr0`"
+read -p `tput setaf 2`"Enter your domain: " domain
+echo ""
+echo "`tput setaf 3`it may take a while based on the number of subdomains, please wait`tput blink`...`tput sgr0`"
+echo ""
+assetfinder $domain > sd1.txt
+cat sd1.txt | httprobe > live_sd1.txt
+sort -u  live_sd1.txt > sorted_sd1.txt
+echo "`tput setaf 2`=====subdomains for $domain=====`tput sgr0`"
+cat sorted_sd1.txt
+echo ""
+echo "`tput setaf 1`=============================================="
+echo "`tput setaf 3`Results are stored in sorted_sd1.txt"
+echo ""
+echo "`tput setaf 6``tput bold`<<<<<< Thank you for using subdomain seeker >>>>>>"
+
